@@ -1,0 +1,99 @@
+-- `resume-gen`.certifications definition
+
+CREATE TABLE `certifications` (
+  `id` varchar(100) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `publisher` varchar(100) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `expired_at` datetime DEFAULT NULL,
+  `information` text DEFAULT NULL,
+  UNIQUE KEY `certifications_id_IDX` (`id`) USING BTREE,
+  KEY `certifications_user_id_IDX` (`user_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- `resume-gen`.educations definition
+
+CREATE TABLE `educations` (
+  `id` varchar(100) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `additional_name` varchar(100) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `country` varchar(100) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `information` text DEFAULT NULL,
+  `grade` varchar(100) DEFAULT NULL,
+  KEY `educations_user_id_IDX` (`user_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- `resume-gen`.experiences definition
+
+CREATE TABLE `experiences` (
+  `id` varchar(100) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `additional_name` varchar(100) DEFAULT NULL,
+  `position` varchar(100) NOT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `country` varchar(100) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `information` text DEFAULT NULL,
+  KEY `experiences_user_id_IDX` (`user_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- `resume-gen`.main_user definition
+
+CREATE TABLE `main_user` (
+  `id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `phone_number` varchar(100) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `linkedin` varchar(100) DEFAULT NULL,
+  `portfolio` varchar(100) DEFAULT NULL,
+  UNIQUE KEY `main_user_id_IDX` (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- `resume-gen`.skills definition
+
+CREATE TABLE `skills` (
+  `id` varchar(100) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  UNIQUE KEY `skills_id_IDX` (`id`) USING BTREE,
+  KEY `skills_user_id_IDX` (`user_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- `resume-gen`.working_experiences definition
+
+CREATE TABLE `working_experiences` (
+  `id` varchar(100) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `additional_name` varchar(100) DEFAULT NULL,
+  `position` varchar(100) NOT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `country` varchar(100) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `information` text DEFAULT NULL,
+  UNIQUE KEY `working_experiences_id_IDX` (`id`) USING BTREE,
+  KEY `working_experiences_user_id_IDX` (`user_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `resume-gen`.main_user (id, name, address, phone_number, email, linkedin, portfolio) VALUES('658e7552-66d9-477b-8a79-6fd4840f4257', 'Oktaviandra Putra Editya', 'Jakarta, Indonesia', '62895700129748', '8andraputra@gmail.com', 'linkedin.com/in/adrputra', 'adrputra.github.io/portfolio');
+INSERT INTO `resume-gen`.educations (id, user_id, name, additional_name, city, country, start_date, end_date, information, grade) VALUES('8ce3944e-a900-4e57-b7a5-15fd72d95119', '658e7552-66d9-477b-8a79-6fd4840f4257', 'IPB University', 'Associate Degree', 'Bogor', 'Indonesia', '2018-07-01 10:10:10', '2021-11-01 10:10:10', '["Computer Network","Computer Hardware","Internet Of Things (IoT)"]', '3.75');
+INSERT INTO `resume-gen`.experiences (id, user_id, name, additional_name, `position`, city, country, start_date, end_date, information) VALUES('77577591-dda0-4d6a-b162-f71ef9841f18', '658e7552-66d9-477b-8a79-6fd4840f4257', 'Speaker', 'Create Simple Android App with MIT App Inventor', 'MTE', 'Bogor', 'Indonesia', '2020-06-01 10:10:10', NULL, 'An event held by Micro IT Community IPB University in order to provide training to the public community about technology.');
+INSERT INTO `resume-gen`.skills (id, user_id, category, name) VALUES('88c54f58-ebfa-4c32-85e8-5cfd3bef15c6', '658e7552-66d9-477b-8a79-6fd4840f4257', 'Backend', 'Golang');
+INSERT INTO `resume-gen`.skills (id, user_id, category, name) VALUES('ab71a036-c675-4a76-b820-98288c899af8', '658e7552-66d9-477b-8a79-6fd4840f4257', 'Frontend', 'React.js');
+INSERT INTO `resume-gen`.skills (id, user_id, category, name) VALUES('ece2b489-51f4-488f-b865-4ba77e7dd101', '658e7552-66d9-477b-8a79-6fd4840f4257', 'Frontend', 'Next.js');
+INSERT INTO `resume-gen`.working_experiences (id, user_id, name, additional_name, `position`, city, country, start_date, end_date, information) VALUES('20987f88-66c4-4afb-a222-7dd86da4501e', '658e7552-66d9-477b-8a79-6fd4840f4257', 'PT. Mitra Integrasi Informatika', 'Client Site at BRI', 'Fullstack Developer', 'Jakarta', 'Indonesia', '2020-06-01 10:10:10', NULL, '["Developed and implemented a project management system web application, inspired by popular tools like Trello and Jira, to streamline team collaboration and task management.","Utilized ASP.NET Web API, ASP.NET MVC, and ASP.NET Core to build robust and scalable backend APIsfor the application.","Designed and implemented database schemas using Microsoft SQL Server, ensuring efficient datastorage and retrieval."]');
