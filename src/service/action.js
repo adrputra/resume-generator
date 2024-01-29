@@ -1,4 +1,4 @@
-import { db } from './utils'
+import { excuteQuery } from './utils'
 
 const DB = async (query) => {
     try {
@@ -21,12 +21,63 @@ const DB = async (query) => {
   }
 
 export const GetUserData = async (data) => {
+  console.log('DATA',data);
   const query = {
-    text: 'SELECT u.*,e.*,s.*,ex.*,we.*,c.* FROM users u LEFT JOIN educations e ON u.user_id = e.user_id LEFT JOIN skills s ON u.user_id = s.user_id LEFT JOIN experiences ex ON u.user_id = ex.user_id LEFT JOIN working_experiences we ON u.user_id = we.user_id LEFT JOIN certifications c ON u.user_id = c.user_id WHERE u.user_id = ?',
+    text: 'SELECT * FROM main_user WHERE id = ?',
     values: [data.id]
   }
 
-  return await DB(query)
+  return await excuteQuery(query)
+}
+
+export const GetEducationData = async (data) => {
+  console.log('DATA',data);
+  const query = {
+    text: 'SELECT * FROM educations WHERE user_id = ?',
+    values: [data.id]
+  }
+
+  return await excuteQuery(query)
+}
+
+export const GetExperienceData = async (data) => {
+  console.log('DATA',data);
+  const query = {
+    text: 'SELECT * FROM experiences WHERE user_id = ?',
+    values: [data.id]
+  }
+
+  return await excuteQuery(query)
+}
+
+export const GetSkillData = async (data) => {
+  console.log('DATA',data);
+  const query = {
+    text: 'SELECT * FROM skills WHERE user_id = ?',
+    values: [data.id]
+  }
+
+  return await excuteQuery(query)
+}
+
+export const GetWorkingExperienceData = async (data) => {
+  console.log('DATA',data);
+  const query = {
+    text: 'SELECT * FROM working_experiences WHERE user_id = ?',
+    values: [data.id]
+  }
+
+  return await excuteQuery(query)
+}
+
+export const GetAllData = async (data) => {
+  const user = await GetUserData(data)
+  const edu = await GetEducationData(data)
+  const exp = await GetExperienceData(data)
+  const skill = await GetSkillData(data)
+  const work = await GetWorkingExperienceData(data)
+
+  return { user, edu, exp, skill, work }
 }
 
 export const InsertUserData = async (data) => {
@@ -35,5 +86,5 @@ export const InsertUserData = async (data) => {
         values: [data.id, data.name, data.address, data.phone_number, data.email, data.linkedin, data.portfolio]
       }
   
-      return await DB(query)
+      return await excuteQuery(query)
 }

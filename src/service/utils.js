@@ -1,10 +1,20 @@
-import mysql from 'mysql';
-
-export const db = () => {
-    mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'resume_gen',
-    });
+import mysql from 'serverless-mysql';
+const db = mysql({
+  config: {
+    host: process.env.MYSQL_HOST,
+    port: process.env.MYSQL_PORT,
+    database: process.env.MYSQL_DATABASE,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD
+  }
+});
+export async function excuteQuery({ text, values }) {
+    console.log('EXE', text, values    );
+  try {
+    const results = await db.query(text, values);
+    await db.end();
+    return results;
+  } catch (error) {
+    return { error };
+  }
 }
