@@ -49,7 +49,7 @@ export function Certification({ showAlert, hideAlert }) {
         </Button>
         <SaveButton
           action="certification"
-          url={process.env.NEXT_PUBLIC_INSERT_CERTIFICATION}
+          url={process.env.NEXT_PUBLIC_RESUME_GEN_INSERT_CERTIFICATION}
           isError={handleErrorMessage}
         />
       </div>

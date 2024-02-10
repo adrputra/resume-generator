@@ -79,12 +79,12 @@ export function Skill({ showAlert, hideAlert }) {
         </Button>
         <SaveButton
           action="skill"
-          url={process.env.NEXT_PUBLIC_INSERT_SKILL}
+          url={process.env.NEXT_PUBLIC_RESUME_GEN_INSERT_SKILL}
           isError={handleErrorMessage}
         />
         {/* <UploadParamButton
           action="skill"
-          url={process.env.NEXT_PUBLIC_INSERT_PARAM_SKILL}
+          url={process.env.NEXT_PUBLIC_RESUME_GEN_INSERT_PARAM_SKILL}
           isError={handleErrorMessage}
         /> */}
       </div>

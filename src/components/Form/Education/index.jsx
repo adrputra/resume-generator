@@ -54,7 +54,7 @@ export function Education({ showAlert, hideAlert }) {
         </Button>
         <SaveButton
           action="education"
-          url={process.env.NEXT_PUBLIC_INSERT_EDUCATION}
+          url={process.env.NEXT_PUBLIC_RESUME_GEN_INSERT_EDUCATION}
           isError={handleErrorMessage}
         />
       </div>

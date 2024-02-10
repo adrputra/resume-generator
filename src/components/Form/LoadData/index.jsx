@@ -55,7 +55,7 @@ export function LoadData({ showAlert, hideAlert }) {
               onChange={(e) => setValue(e.target.value)}
             />
 
-            <LoadButton url={process.env.NEXT_PUBLIC_ALL_DATA} data={value} isError={handleErrorMessage}/>
+            <LoadButton url={process.env.NEXT_PUBLIC_RESUME_GEN_ALL_DATA} data={value} isError={handleErrorMessage}/>
           </div>
         </div>
       </div>

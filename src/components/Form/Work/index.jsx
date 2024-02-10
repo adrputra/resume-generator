@@ -49,7 +49,7 @@ export function Work({ showAlert, hideAlert }) {
         </Button>
         <SaveButton
           action="work"
-          url={process.env.NEXT_PUBLIC_INSERT_WORK}
+          url={process.env.NEXT_PUBLIC_RESUME_GEN_INSERT_WORK}
           isError={handleErrorMessage}
         />
       </div>

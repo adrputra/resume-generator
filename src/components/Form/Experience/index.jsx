@@ -49,7 +49,7 @@ export function Experience({ showAlert, hideAlert }) {
         </Button>
         <SaveButton
           action="experience"
-          url={process.env.NEXT_PUBLIC_INSERT_EXPERIENCE}
+          url={process.env.NEXT_PUBLIC_RESUME_GEN_INSERT_EXPERIENCE}
           isError={handleErrorMessage}
         />
       </div>
