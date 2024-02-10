@@ -28,7 +28,7 @@ COPY --from=build /app/public ./public
 COPY package*.json ./
 
 # Install only production dependencies
-RUN npm install --only=production
+RUN npm install
 
 # Expose the port on which your Next.js application will run
 EXPOSE 3002
