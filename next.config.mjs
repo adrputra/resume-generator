@@ -9,11 +9,10 @@ const nextConfig = {
       },
     ];
   },
-//   webpack: (config) => {
-//     config.resolve.alias.canvas = false;
-
-//     return config;
-//   },
+  async rewrites() {
+    return [{ source: "/resume-gen/api/:path*", destination: "/api/:path*" }];
+  },
+  output: 'standalone',
 };
 
 export default nextConfig;
