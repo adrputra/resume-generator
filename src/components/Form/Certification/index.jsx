@@ -1,32 +1,32 @@
 import { Button, TextInput, Label, Tooltip } from "flowbite-react";
 import { MdAddCircleOutline, MdOutlineRemoveCircle } from "react-icons/md";
 import { FaQuestionCircle } from "react-icons/fa";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Context } from "@/context";
 import { DynamicAdd } from "@/components/DynamicAdd";
 import { CapitalizeEachLetter } from "@/service/formatter";
 import { SaveButton } from "@/components/SaveButton";
 import Datepicker from "react-tailwindcss-datepicker";
 
-export function Experience({ showAlert, hideAlert }) {
+export function Certification({ showAlert, hideAlert }) {
   const { context, updateContext } = useContext(Context);
-  const experienceData = context?.experience || [{ exp_information: [""] }];
+  const certData = context?.certification || [{ cert_information: [""] }];
 
-  const handleAddExperience = () => {
-    const updatedExperience = [...experienceData, { exp_information: [""] }];
-    updateContext({ ...context, experience: updatedExperience });
+  const handleAddCert = () => {
+    const updatedCert = [...certData, { cert_information: [""] }];
+    updateContext({ ...context, certification: updatedCert });
   };
 
-  const handleRemoveExperience = (index) => {
-    const updatedExperience = [...experienceData];
-    updatedExperience.splice(index, 1);
-    updateContext({ ...context, experience: updatedExperience });
+  const handleRemoveCert = (index) => {
+    const updatedCert = [...certData];
+    updatedCert.splice(index, 1);
+    updateContext({ ...context, certification: updatedCert });
   };
 
   const handleInputChange = (index, field, value) => {
-    const updatedExperience = [...experienceData];
-    updatedExperience[index] = { ...updatedExperience[index], [field]: value };
-    updateContext({ ...context, experience: updatedExperience });
+    const updatedCert = [...certData];
+    updatedCert[index] = { ...updatedCert[index], [field]: value };
+    updateContext({ ...context, certification: updatedCert });
   };
 
   const handleErrorMessage = (error) => {
@@ -41,32 +41,32 @@ export function Experience({ showAlert, hideAlert }) {
       <div className="grid grid-flow-col auto-cols-max gap-4 my-auto">
         <Button
           // pill
-          onClick={handleAddExperience}
+          onClick={handleAddCert}
           className="h-auto w-25 mt-2 bg-blue-500 hover:bg-blue-700"
         >
           <MdAddCircleOutline className="h-6 w-6 mr-2" />
           Add More
         </Button>
         <SaveButton
-          action="experience"
-          url={process.env.NEXT_PUBLIC_INSERT_EXPERIENCE}
+          action="certification"
+          url={process.env.NEXT_PUBLIC_INSERT_CERTIFICATION}
           isError={handleErrorMessage}
         />
       </div>
       <div className="grid grid-cols-4 gap-12">
-        {experienceData.map((experience, index) => (
+        {certData.map((cert, index) => (
           <div
             className="grid grid-flow-row auto-rows-max mx-auto gap-4 my-4"
             key={index}
           >
             <div className="flex flex-auto flex-col w-64 gap-4">
               <div className="block">
-                <Label htmlFor="base" value="Experience Title" />
+                <Label htmlFor="base" value="Certification Title" />
               </div>
               <TextInput
-                label="Experience Title"
-                id={`experience_${index}`}
-                value={experience.title || ""}
+                label="Certification Title"
+                id={`cert_${index}`}
+                value={cert.title || ""}
                 onChange={(e) =>
                   handleInputChange(
                     index,
@@ -78,67 +78,16 @@ export function Experience({ showAlert, hideAlert }) {
             </div>
             <div className="flex flex-auto flex-col w-64 gap-4">
               <div className="block">
-                <Label htmlFor="base" value="Experience Information" />
+                <Label htmlFor="base" value="Publisher" />
               </div>
               <TextInput
-                label="Experience Information"
-                id={`subtitle_${index}`}
-                value={experience.subtitle || ""}
+                label="Publisher"
+                id={`publisher_${index}`}
+                value={cert.subtitle || ""}
                 onChange={(e) =>
                   handleInputChange(
                     index,
                     "subtitle",
-                    CapitalizeEachLetter(e.target.value)
-                  )
-                }
-              />
-            </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
-              <div className="block">
-                <Label htmlFor="base" value="Position" />
-              </div>
-              <TextInput
-                label="Position"
-                id={`position_${index}`}
-                value={experience.position || ""}
-                onChange={(e) =>
-                  handleInputChange(
-                    index,
-                    "position",
-                    CapitalizeEachLetter(e.target.value)
-                  )
-                }
-              />
-            </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
-              <div className="block">
-                <Label htmlFor="base" value="City" />
-              </div>
-              <TextInput
-                label="City"
-                id={`experience_city_${index}`}
-                value={experience.city || ""}
-                onChange={(e) =>
-                  handleInputChange(
-                    index,
-                    "city",
-                    CapitalizeEachLetter(e.target.value)
-                  )
-                }
-              />
-            </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
-              <div className="block">
-                <Label htmlFor="base" value="Country" />
-              </div>
-              <TextInput
-                label="Country"
-                id={`experience_country_${index}`}
-                value={experience.country || ""}
-                onChange={(e) =>
-                  handleInputChange(
-                    index,
-                    "country",
                     CapitalizeEachLetter(e.target.value)
                   )
                 }
@@ -152,11 +101,11 @@ export function Experience({ showAlert, hideAlert }) {
                 asSingle={true}
                 useRange={false}
                 showShortcuts={true}
-                id={`experience_start_date_${index}`}
+                id={`cert_start_date_${index}`}
                 value={
                   {
-                    startDate: experience.start_date,
-                    endDate: experience.start_date,
+                    startDate: cert.start_date,
+                    endDate: cert.start_date,
                   } || ""
                 }
                 onChange={(e) =>
@@ -175,11 +124,11 @@ export function Experience({ showAlert, hideAlert }) {
                 asSingle={true}
                 useRange={false}
                 showShortcuts={true}
-                id={`experience_end_date_${index}`}
+                id={`cert_end_date_${index}`}
                 value={
                   {
-                    startDate: experience.end_date,
-                    endDate: experience.end_date,
+                    startDate: cert.end_date,
+                    endDate: cert.end_date,
                   } || ""
                 }
                 onChange={(e) =>
@@ -189,14 +138,14 @@ export function Experience({ showAlert, hideAlert }) {
             </div>
             <DynamicAdd
               label="Information"
-              name="exp_information"
-              id={`exp_information_${index}`}
-              action="experience"
+              name="cert_information"
+              id={`cert_information_${index}`}
               index={index}
+              action="certification"
             />
             <Button
               pill
-              onClick={() => handleRemoveExperience(index)}
+              onClick={() => handleRemoveCert(index)}
               className="h-8 w-25 bg-red-500 mt-2 hover:bg-red-700"
             >
               <MdOutlineRemoveCircle className="h-6 w-6 mr-2" />

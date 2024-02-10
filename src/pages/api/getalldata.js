@@ -3,7 +3,8 @@ import {
   GetEducationData,
   GetExperienceData,
   GetSkillData,
-  GetWorkingExperienceData,
+  GetWorkData,
+  GetCertData,
 } from "@/service/action";
 import { ValidateGetAllData } from "@/service/validator";
 
@@ -23,13 +24,15 @@ export default async function handler(req, res) {
     let edu = await GetEducationData(req.body);
     let exp = await GetExperienceData(req.body);
     let skill = await GetSkillData(req.body);
-    let work = await GetWorkingExperienceData(req.body);
+    let work = await GetWorkData(req.body);
+    let cert = await GetCertData(req.body);
 
     user = user?.result || user?.error;
     edu = edu?.result || edu?.error;
     exp = exp?.result || exp?.error;
     skill = skill?.result || skill?.error;
     work = work?.result || work?.error;
+    cert = cert?.result || cert?.error;
 
     const result = {
       user,
@@ -37,6 +40,7 @@ export default async function handler(req, res) {
       exp,
       skill,
       work,
+      cert,
     };
     console.info("RES GET ALL DATA", result);
 

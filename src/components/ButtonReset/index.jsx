@@ -7,7 +7,7 @@ export function ResetButton() {
   const [openModal, setOpenModal] = useState(false);
 
   const handleClearStorage = () => {
-    const initial = {education: [{ institution_information: [""] }], experience: [{ exp_information: [""] }], work: [{ work_information: [""] }]}
+    const initial = {education: [{ institution_information: [""] }], experience: [{ exp_information: [""] }], work: [{ work_information: [""] }], certification: [{ cert_information: [""] }], skill: [{}]}
     localStorage.setItem("context", JSON.stringify(initial));
     window.location.reload();
   };

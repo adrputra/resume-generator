@@ -1,4 +1,4 @@
-import { Button, Label, TextInput, Tooltip } from "flowbite-react";
+import { Button, Label, TextInput, Tooltip, Textarea } from "flowbite-react";
 import { FaQuestionCircle } from "react-icons/fa";
 import { MdAddCircleOutline, MdOutlineRemoveCircle } from "react-icons/md";
 import { useContext } from "react";
@@ -55,8 +55,8 @@ export function DynamicAdd(props) {
           >
             <MdOutlineRemoveCircle className="h-6 w-6" />
           </Button>
-          <div className="grid grid-flow-row auto-rows-max my-4 col-span-5">
-            <TextInput
+          <div className="grid grid-flow-row auto-rows-max my-2 col-span-5">
+            <Textarea
               type="text"
               sizing="md"
               id={`${props.name}_${props.index}_${index}`}

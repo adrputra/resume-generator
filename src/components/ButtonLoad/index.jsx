@@ -9,9 +9,9 @@ export function LoadButton(props) {
   const handleSave = async () => {
     const data = {
       id: props.data,
-      user_id: props.data
+      user_id: props.data,
     };
-    
+
     try {
       console.log(`REQ LOAD ALL DATA`, data);
       const response = await fetch(props.url, {
@@ -25,7 +25,7 @@ export function LoadButton(props) {
       const result = await response.json();
       console.log(`RES LOAD ALL DATA`, result);
 
-      const { user, edu, exp, skill, work } = result.result;
+      const { user, edu, exp, skill, work, cert } = result.result;
 
       const newProfile = {
         id: user[0].id,
@@ -48,27 +48,113 @@ export function LoadButton(props) {
           city: item.city,
           country: item.country,
           start_date: item.start_date,
-          end_date: item.end_date,
-          institution_information: item.information.split("|"),
+          end_date: item.end_date ? item.end_date : "",
+          institution_information: item.information
+            ? item.information.split("|")
+            : [""],
           grade: item.grade,
         };
 
         newEducation.push(temp);
       });
 
+      const newExperience = [];
+      exp.forEach((item) => {
+        const temp = {
+          id: item.id,
+          user_id: item.user_id,
+          title: item.name,
+          subtitle: item.additional_name,
+          position: item.position,
+          city: item.city,
+          country: item.country,
+          start_date: item.start_date,
+          end_date: item.end_date ? item.end_date : "",
+          exp_information: item.information
+            ? item.information.split("|")
+            : [""],
+        };
+
+        newExperience.push(temp);
+      });
+
+      const newWork = [];
+      work.forEach((item) => {
+        const temp = {
+          id: item.id,
+          user_id: item.user_id,
+          title: item.name,
+          subtitle: item.additional_name,
+          position: item.position,
+          city: item.city,
+          country: item.country,
+          start_date: item.start_date,
+          end_date: item.end_date ? item.end_date : "",
+          work_information: item.information
+            ? item.information.split("|")
+            : [""],
+        };
+
+        newWork.push(temp);
+      });
+
+      const newCert = [];
+      cert.forEach((item) => {
+        const temp = {
+          id: item.id,
+          user_id: item.user_id,
+          title: item.name,
+          subtitle: item.publisher,
+          start_date: item.created_at,
+          end_date: item.expired_at ? item.expired_at : "",
+          cert_information: item.information
+            ? item.information.split("|")
+            : [""],
+        };
+
+        newCert.push(temp);
+      });
+
+      const newSkill = [];
+      skill.forEach((item) => {
+        const temp = {
+          id: item.id,
+          user_id: item.user_id,
+          category: item.category,
+          skill_information: item.name
+            ? item.name.split("|").map((item) => ({
+                value: item,
+                label: item,
+              }))
+            : null,
+        };
+
+        newSkill.push(temp);
+      });
+
       const newContext = {
         profile: newProfile,
-        education: newEducation,
-        experience: exp,
-        skill: skill,
-        workingExperience: work,
+        education:
+          newEducation.length > 0
+            ? newEducation
+            : [{ institution_information: [""] }],
+        experience:
+          newExperience.length > 0
+            ? newExperience
+            : [{ exp_information: [""] }],
+        skill: newSkill.length > 0 ? newSkill : [{ skill_information: [""] }],
+        work: newWork.length > 0 ? newWork : [{ work_information: [""] }],
+        certification:
+          newCert.length > 0 ? newCert : [{ cert_information: [""] }],
       };
-      
+
+      console.log('NEW CONTEXT', newContext);
       updateContext(newContext);
-      props.isError({msg: result.message, code: "success"})
+      
+      props.isError({ msg: result.message, code: "success" });
     } catch (error) {
       console.error("Error hitting action:", error);
-      props.isError({msg: error.message, code: "failure"})
+      props.isError({ msg: error.message, code: "failure" });
     }
   };
 

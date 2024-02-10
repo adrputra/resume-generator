@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const ValidateGetAllData = (data) => {
+export const ValidateGetAllData = (data) => {
   const GetAllDataSchema = Joi.object({
     id: Joi.string().required(),
     user_id: Joi.string().required(),
@@ -8,7 +8,7 @@ const ValidateGetAllData = (data) => {
   return GetAllDataSchema.validate(data);
 }
 
-const ValidateInsertUserData = (data) => {
+export const ValidateInsertUserData = (data) => {
   const InsertUserDataSchema = Joi.object({
     id: Joi.string().required(),
     name: Joi.string().required(),
@@ -21,7 +21,7 @@ const ValidateInsertUserData = (data) => {
   return InsertUserDataSchema.validate(data);
 };
 
-const ValidateInsertEducationData = (data) => {
+export const ValidateInsertEducationData = (data) => {
   const InsertEducationDataSchema = Joi.object({
     id: Joi.string().required(),
     user_id: Joi.string().required(),
@@ -30,14 +30,14 @@ const ValidateInsertEducationData = (data) => {
     city: Joi.string(),
     country: Joi.string().required(),
     start_date: Joi.string().required(),
-    end_date: Joi.string(),
+    end_date: Joi.any(),
     information: Joi.string(),
     grade: Joi.string(),
   });
   return InsertEducationDataSchema.validate(data);
 };
 
-const ValidateInsertExperienceData = (data) => {
+export const ValidateInsertExperienceData = (data) => {
   const InsertExperienceDataSchema = Joi.object({
     id: Joi.string().required(),
     user_id: Joi.string().required(),
@@ -47,15 +47,47 @@ const ValidateInsertExperienceData = (data) => {
     city: Joi.string(),
     country: Joi.string().required(),
     start_date: Joi.string().required(),
-    end_date: Joi.string(),
+    end_date: Joi.any(),
     information: Joi.string(),
   });
   return InsertExperienceDataSchema.validate(data);
 };
 
-module.exports = {
-  ValidateInsertUserData,
-  ValidateInsertEducationData,
-  ValidateGetAllData,
-  ValidateInsertExperienceData,
+export const ValidateInsertWorkData = (data) => {
+  const InsertWorkDataSchema = Joi.object({
+    id: Joi.string().required(),
+    user_id: Joi.string().required(),
+    name: Joi.string().required(),
+    additional_name: Joi.string(),
+    position: Joi.string(),
+    city: Joi.string(),
+    country: Joi.string().required(),
+    start_date: Joi.string().required(),
+    end_date: Joi.any(),
+    information: Joi.string(),
+  });
+  return InsertWorkDataSchema.validate(data);
+};
+
+export const ValidateInsertCertData = (data) => {
+  const InsertCertDataSchema = Joi.object({
+    id: Joi.string().required(),
+    user_id: Joi.string().required(),
+    name: Joi.string().required(),
+    publisher: Joi.string(),
+    created_at: Joi.string().required(),
+    expired_at: Joi.any(),
+    information: Joi.any(),
+  });
+  return InsertCertDataSchema.validate(data);
+};
+
+export const ValidateInsertSkillData = (data) => {
+  const InsertSkillDataSchema = Joi.object({
+    id: Joi.string().required(),
+    user_id: Joi.string().required(),
+    category: Joi.string().required(),
+    name: Joi.string().required(),
+  });
+  return InsertSkillDataSchema.validate(data);
 };

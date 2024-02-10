@@ -1,0 +1,210 @@
+{
+    "profile": {
+        "id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+        "name": "Oktaviandra Putra Editya",
+        "city": "Jakarta",
+        "country": " Indonesia",
+        "phone_number": "0895700129748",
+        "email": "ricardoandra17@gmail.com",
+        "linkedin": "adrputra",
+        "portfolio": "adrputra"
+    },
+    "education": [
+        {
+            "id": "ee23035c-6f7a-4766-8f83-f71071d2bad8",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "institution": "IPB University",
+            "major": "Computer Engineering",
+            "city": "Bogor",
+            "country": "Indonesia",
+            "start_date": "2018-07-10T17:00:00.000Z",
+            "end_date": "2021-11-09T17:00:00.000Z",
+            "institution_information": [
+                "Computer Network",
+                "Computer Hardware",
+                "Internet of Things (IoT)"
+            ],
+            "grade": "3.72"
+        }
+    ],
+    "experience": [
+        {
+            "id": "7810e359-89d8-467c-b406-2e2561426f01",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "title": "Create Simple Android App With MIT App Inventor",
+            "subtitle": "Micro Techno Education (MTE)",
+            "position": "Speaker",
+            "city": "Bogor",
+            "country": "Indonesia",
+            "start_date": "2020-05-31T17:00:00.000Z",
+            "end_date": "",
+            "exp_information": [
+                "An event held by Micro IT Community IPB University in order to provide training to the public community about technology."
+            ]
+        }
+    ],
+    "skill": [
+        {
+            "id": "512ce066-6ac6-4259-b5b3-9323a7c80d30",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "category": "Backend",
+            "skill_information": [
+                {
+                    "value": "Node.js",
+                    "label": "Node.js"
+                },
+                {
+                    "value": "Go",
+                    "label": "Go"
+                },
+                {
+                    "value": ".Net Core",
+                    "label": ".Net Core"
+                },
+                {
+                    "value": "SQL Server",
+                    "label": "SQL Server"
+                },
+                {
+                    "value": "Postgresql",
+                    "label": "Postgresql"
+                },
+                {
+                    "value": "Redis",
+                    "label": "Redis"
+                },
+                {
+                    "value": "RabbitMQ",
+                    "label": "RabbitMQ"
+                },
+                {
+                    "value": "MySQL",
+                    "label": "MySQL"
+                }
+            ]
+        },
+        {
+            "id": "8e19e067-795b-47f0-95a0-0aad2aed2887",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "category": "Other",
+            "skill_information": [
+                {
+                    "value": "Docker",
+                    "label": "Docker"
+                },
+                {
+                    "value": "CI/CD Github Action",
+                    "label": "CI/CD Github Action"
+                },
+                {
+                    "value": "Git",
+                    "label": "Git"
+                },
+                {
+                    "value": "AS400",
+                    "label": "AS400"
+                }
+            ]
+        },
+        {
+            "id": "ee183488-f723-4bc2-83a1-700ed3ff1d89",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "category": "Testing",
+            "skill_information": [
+                {
+                    "value": "Postman",
+                    "label": "Postman"
+                },
+                {
+                    "value": "Selenium",
+                    "label": "Selenium"
+                },
+                {
+                    "value": "Katalon",
+                    "label": "Katalon"
+                }
+            ]
+        },
+        {
+            "id": "fea3ec27-015e-4b5e-9fe2-d797cc8a4e97",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "category": "Frontend",
+            "skill_information": [
+                {
+                    "value": "React.js",
+                    "label": "React.js"
+                },
+                {
+                    "value": "Next.js",
+                    "label": "Next.js"
+                },
+                {
+                    "value": "Tailwinds",
+                    "label": "Tailwinds"
+                }
+            ]
+        }
+    ],
+    "work": [
+        {
+            "id": "294cdd32-1a6f-420c-856f-16c12bed37a6",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "title": "IoT Developer",
+            "subtitle": "PT. XL Axiata",
+            "position": "IoT Developer",
+            "city": "Jakarta",
+            "country": "Indonesia",
+            "start_date": "2020-05-31T17:00:00.000Z",
+            "end_date": "2020-09-23T17:00:00.000Z",
+            "work_information": [
+                "Develop an IoT device, “Smart Apiary Monitoring and Controlling to Increase Beekeeping Productivity”.\nThis device maintains humidity and temperature inside the beehives and provides real-time data to\nmobile application. The data is then used for several follow-up action based on condition. (Arduino,\nNB-IoT, FlexIoT, Android Studio, C, Java, RestAPI, JSON)"
+            ]
+        }
+    ],
+    "certification": [
+        {
+            "id": "565dba40-d0ba-4ac9-a7bc-4d86f7e4fc39",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "title": "Architecting On AWS (Membangun Arsitektur Cloud Di AWS)",
+            "subtitle": "Dicoding Indonesia",
+            "start_date": "2024-02-17T17:00:00.000Z",
+            "end_date": "",
+            "cert_information": [
+                ""
+            ]
+        },
+        {
+            "id": "8a559af1-872a-4b05-a4f7-ee7a89375caa",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "title": "Professional Academy Python",
+            "subtitle": "Digitalent Kominfo",
+            "start_date": "2023-03-30T17:00:00.000Z",
+            "end_date": "",
+            "cert_information": [
+                ""
+            ]
+        },
+        {
+            "id": "c008fbde-405d-4460-8cba-646557adcbf0",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "title": "Scalable Web Service With Golang (Intermediate)",
+            "subtitle": "Talenthub Kemnaker",
+            "start_date": "2023-03-30T17:00:00.000Z",
+            "end_date": "",
+            "cert_information": [
+                ""
+            ]
+        },
+        {
+            "id": "f6ec6b8b-31ac-4768-bc4f-28a7d019ddc2",
+            "user_id": "a986e27a-4797-4fab-b951-e0aa8690131d",
+            "title": "Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)",
+            "subtitle": "Dicoding Indonesia",
+            "start_date": "2024-02-26T17:00:00.000Z",
+            "end_date": "",
+            "cert_information": [
+                ""
+            ]
+        }
+    ]
+}

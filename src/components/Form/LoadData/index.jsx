@@ -10,7 +10,7 @@ export function LoadData({ showAlert, hideAlert }) {
     showAlert(error.code, error.msg)
     setTimeout(() => {
       hideAlert()
-    }, 10000);
+    }, 8000);
   }
 
   return (
@@ -51,7 +51,7 @@ export function LoadData({ showAlert, hideAlert }) {
               id="load_data"
               type="text"
               sizing="md"
-              value={value}
+              value={value || ""}
               onChange={(e) => setValue(e.target.value)}
             />
 
