@@ -1,5 +1,5 @@
 # Use Node.js LTS version as base image
-FROM node:14 AS build
+FROM node:20 AS build
 
 # Set working directory in the container
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a smaller base image for serving
-FROM node:14-alpine
+FROM node:20-alpine
 
 # Set working directory in the container
 WORKDIR /app
