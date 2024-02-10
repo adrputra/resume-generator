@@ -96,7 +96,7 @@ export function Profile({ showAlert, hideAlert }) {
         </div>
         <SaveButton
           action="profile"
-          url={process.env.NEXT_PUBLIC_INSERT_USER}
+          url={process.env.NEXT_PUBLIC_RESUME_GEN_INSERT_USER}
           isError={handleErrorMessage}
         />
       </div>
