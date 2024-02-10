@@ -1,28 +1,37 @@
-# Use an official Node.js runtime as the base image
-FROM node:20-alpine
+# Use Node.js LTS version as base image
+FROM node:14 AS build
 
-# Set the working directory in the container
+# Set working directory in the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the working directory
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install the dependencies
-RUN yarn install
+# Install dependencies
+RUN npm install
 
-# Copy the entire project to the working directory
+# Copy the rest of the application code
 COPY . .
 
-# Expose the desired port
-# ARG PORT
-EXPOSE 3002
-
-# Define the command to run the application
+# Build the Next.js application
 RUN npm run build
 
-RUN mkdir -p ./build/ui
-RUN mv ./build/static ./build/ui
-RUN mv ./build/assets ./build/ui
-RUN mv ./build/favicon ./build/ui
+# Use a smaller base image for serving
+FROM node:14-alpine
 
-CMD [ "npx", "serve", "-s", "build", "-l", "3002"]
+# Set working directory in the container
+WORKDIR /app
+
+# Copy built application from build stage
+COPY --from=build /app/.next ./.next
+COPY --from=build /app/public ./public
+COPY package*.json ./
+
+# Install only production dependencies
+RUN npm install --only=production
+
+# Expose the port on which your Next.js application will run
+EXPOSE 3002
+
+# Start the Next.js application
+CMD ["npm", "start", "--", "--port", "3002"]
