@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/resume',
   async redirects() {
     return [
       {
@@ -12,7 +13,6 @@ const nextConfig = {
   async rewrites() {
     return [{ source: "/resume-gen/api/:path*", destination: "/api/:path*" }];
   },
-  output: 'standalone',
 };
 
 export default nextConfig;
