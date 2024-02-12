@@ -23,12 +23,14 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy built application from build stage
-COPY --from=build /app/.next /resume/.next
-COPY --from=build /app/public /resume/public
+COPY --from=build /app/.next ./.next
+COPY --from=build /app/public ./public
+COPY --from=build /app/.node_modules ./.node_modules
+
 COPY package*.json ./
 
 # Install only production dependencies
-RUN npm install
+# RUN npm install
 
 # Expose the port on which your Next.js application will run
 EXPOSE 3002
