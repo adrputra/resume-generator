@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/resume',
+  // basePath: '/resume',
+  // distDir: 'build',
   async rewrites() {
     return [{ source: "/resume-gen/api/:path*", destination: "/api/:path*" }];
   },
