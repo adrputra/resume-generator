@@ -23,9 +23,9 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy built application from build stage
-COPY --from=build /app/.next ./.next
-COPY --from=build /app/public ./public
-COPY package*.json ./
+COPY --from=build /app/.next /resume/.next
+COPY --from=build /app/public /resume/public
+COPY package*.json /resume/
 
 # Install only production dependencies
 RUN npm install
