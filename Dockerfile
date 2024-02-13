@@ -24,7 +24,6 @@ WORKDIR /app
 
 # Copy built application from build stage
 COPY --from=build /app/.next ./.next
-COPY --from=build /app/.next/static ./.next/resume/static
 COPY --from=build /app/public ./public
 COPY --from=build /app/node_modules ./node_modules
 
