@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // basePath: '/resume',
-  // distDir: 'build',
+  assetPrefix: '/resume/',
   async redirects() {
     return [
       {
