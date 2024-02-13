@@ -57,4 +57,5 @@ jobs:
           command_timeout: 30m
           script: |
             cd ${{ secrets.NAME }}
+            docker-compose -f ${{ secrets.NAME }}.yaml down -v --remove-orphans
             docker-compose -f ${{ secrets.NAME }}.yaml up -d
