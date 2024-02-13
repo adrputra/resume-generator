@@ -23,9 +23,14 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy built application from build stage
-COPY --from=build /app/.next ./.next
+# COPY --from=build /app/.next ./.next
+# COPY --from=build /app/public ./public
+# COPY --from=build /app/node_modules ./node_modules
+
+COPY --from=build /app/.next/static ./.next/static
+COPY --from=build /app/.next/standalone ./
 COPY --from=build /app/public ./public
-COPY --from=build /app/node_modules ./node_modules
+# COPY --from=build /app/node_modules ./node_modules
 
 COPY package*.json ./
 
@@ -35,5 +40,9 @@ COPY package*.json ./
 # Expose the port on which your Next.js application will run
 EXPOSE 3002
 
+ENV PORT 3002
+ENV HOSTNAME 0.0.0.0
+
 # Start the Next.js application
-CMD ["npm", "start", "--", "--port", "3002"]
+# CMD ["npm", "start", "--", "--port", "3002"]
+CMD [ "node", "server.js" ]
