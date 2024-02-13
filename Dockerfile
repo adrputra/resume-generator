@@ -1,6 +1,6 @@
 # Use Node.js LTS version as base image
 FROM node:20 AS build
-RUN apk add --no-cache libc6-compat
+
 # Set working directory in the container
 WORKDIR /app
 
@@ -18,6 +18,7 @@ RUN npm run build
 
 # Use a smaller base image for serving
 FROM node:20-alpine
+RUN apk add --no-cache libc6-compat
 
 # Set working directory in the container
 WORKDIR /app
