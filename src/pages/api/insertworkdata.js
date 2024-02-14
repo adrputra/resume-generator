@@ -26,7 +26,7 @@ import {
           city: item.city,
           country: item.country,
           start_date: item?.start_date.split("T")[0],
-          end_date: item?.end_date.split("T")[0],
+          end_date: item?.end_date ? item?.end_date.split("T")[0] : null,
           information: information,
         };
   
