@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  assetPrefix: "/resume/",
+  assetPrefix: "/static-vault/resume/",
   async redirects() {
     return [
       {
