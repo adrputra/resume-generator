@@ -54,7 +54,7 @@ export default function GeneratePDF(props) {
         pdf.line(0, curY, width, curY)
 
         // EDUCATION
-        if (education.length !== 0 && Object.keys(education).length > 1) {
+        if (education.length !== 0 && Object.keys(education).length > 0) {
             pdf.setFontSize(13)
             pdf.setFont('times', 'bold');
             curY += 7
@@ -114,7 +114,7 @@ export default function GeneratePDF(props) {
         
 
         // WORK
-        if (work.length !== 0 && Object.keys(work).length > 1) {
+        if (work.length !== 0 && Object.keys(work).length > 0) {
             pdf.setFontSize(13)
             pdf.setFont('times', 'bold');
             curY += 7
@@ -168,7 +168,7 @@ export default function GeneratePDF(props) {
         
 
         // EXPERIENCE
-        if (experience.length !== 0 && Object.keys(experience).length > 1) {
+        if (experience.length !== 0 && Object.keys(experience).length > 0) {
             pdf.setFontSize(13)
             pdf.setFont('times', 'bold');
             curY += 7
@@ -228,7 +228,7 @@ export default function GeneratePDF(props) {
         
 
         // CERTIFICATION
-        if (certification.length !== 0 && Object.keys(certification).length > 1) {
+        if (certification.length !== 0 && Object.keys(certification).length > 0) {
             pdf.setFontSize(13)
             pdf.setFont('times', 'bold');
             curY += 7
@@ -261,7 +261,7 @@ export default function GeneratePDF(props) {
         
 
         // SKILL
-        if (skill.length !== 0 && Object.keys(skill).length > 1) {
+        if (skill.length !== 0 && Object.keys(skill).length > 0) {
             pdf.setFontSize(13)
             pdf.setFont('times', 'bold');
             curY += 7
