@@ -70,6 +70,7 @@ jobs:
           port: ${{ secrets.PORT }}
           command_timeout: 30m
           script: |
-            docker cp ${{ secrets.NAME }}:/app/.next/static $HOME/${{ secrets.VAULT }}/temp/${{ secrets.NAME }}/static
-            docker exec ${{ secrets.VAULT }} sh -c 'mkdir -p /app/static-vault/resume/_next'
-            docker cp $HOME/${{ secrets.VAULT }}/temp/${{ secrets.NAME }}/static ${{ secrets.VAULT }}:/app/static-vault/resume/_next
+            mkdir -p $HOME/${{ secrets.VAULT }}/temp/${{ secrets.NAME }}
+            docker cp ${{ secrets.NAME }}:/app/.next/static $HOME/${{ secrets.VAULT }}/temp/${{ secrets.NAME }}
+            docker exec ${{ secrets.VAULT }} sh -c 'mkdir -p /app/static-vault/${{ secrets.NAME }}/_next'
+            docker cp $HOME/${{ secrets.VAULT }}/temp/${{ secrets.NAME }}/static ${{ secrets.VAULT }}:/app/static-vault/${{ secrets.NAME }}/_next
