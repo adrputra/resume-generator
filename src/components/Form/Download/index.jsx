@@ -14,7 +14,7 @@ export function Download({ showAlert, hideAlert }) {
         url={process.env.NEXT_PUBLIC_GENERATE_PDF}
         isError={handleErrorMessage}
       />
-      <PDFViewer />
+      {/* <PDFViewer /> */}
     </div>
   );
 }
