@@ -59,3 +59,17 @@ jobs:
             cd ${{ secrets.NAME }}
             docker-compose -f ${{ secrets.NAME }}.yaml down -v --remove-orphans
             docker-compose -f ${{ secrets.NAME }}.yaml up -d
+
+      - name: Copy Assets From/To Vault
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          command_timeout: 30m
+          script: |
+            docker cp ${{ secrets.NAME }}:/app/.next/static $home/${{ secrets.VAULT }}/temp/${{ secrets.NAME }}/static
+            docker exec ${{ secrets.VAULT }} sh -c 'mkdir -p /app/static-vault/resume/_next'
+            docker cp $home/${{ secrets.VAULT }}/temp/${{ secrets.NAME }}/static ${{ secrets.VAULT }}:/app/static-vault/resume/_next
