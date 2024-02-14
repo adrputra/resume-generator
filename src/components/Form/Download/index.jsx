@@ -14,7 +14,12 @@ export function Download({ showAlert, hideAlert }) {
         url={process.env.NEXT_PUBLIC_GENERATE_PDF}
         isError={handleErrorMessage}
       />
-      <PDFViewer />
+      <div className="my-4">
+        <h3 className="text-lg font-normal text-gray-500 dark:text-gray-400">
+          Below is generated sample resume. You may refer to it.
+        </h3>
+        <PDFViewer />
+      </div>
     </div>
   );
 }
