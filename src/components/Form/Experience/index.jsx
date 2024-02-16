@@ -1,7 +1,7 @@
 import { Button, TextInput, Label, Tooltip } from "flowbite-react";
 import { MdAddCircleOutline, MdOutlineRemoveCircle } from "react-icons/md";
 import { FaQuestionCircle } from "react-icons/fa";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Context } from "@/context";
 import { DynamicAdd } from "@/components/DynamicAdd";
 import { CapitalizeEachLetter } from "@/service/formatter";

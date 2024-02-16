@@ -5,7 +5,7 @@ import {
   MdClear,
 } from "react-icons/md";
 import makeAnimated from "react-select/animated";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { Context } from "@/context";
 import { CapitalizeEachLetter } from "@/service/formatter";
 import { SaveButton } from "@/components/SaveButton";
