@@ -1,7 +1,7 @@
 import { Button, TextInput, Label, Tooltip } from "flowbite-react";
 import { MdAddCircleOutline, MdOutlineRemoveCircle } from "react-icons/md";
 import { FaQuestionCircle } from "react-icons/fa";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Context } from "@/context";
 import { DynamicAdd } from "@/components/DynamicAdd";
 import { CapitalizeEachLetter } from "@/service/formatter";
@@ -53,13 +53,13 @@ export function Work({ showAlert, hideAlert }) {
           isError={handleErrorMessage}
         />
       </div>
-      <div className="grid grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {workData.map((work, index) => (
           <div
             className="grid grid-flow-row auto-rows-max mx-auto gap-4 my-4"
             key={index}
           >
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col md:w-64 gap-4">
               <div className="block">
                 <Label htmlFor="base" value="Work Experience Title" />
               </div>
@@ -76,7 +76,7 @@ export function Work({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col md:w-64 gap-4">
               <div className="block">
                 <Label htmlFor="base" value="Work Experience Information" />
               </div>
@@ -93,7 +93,7 @@ export function Work({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col md:w-64 gap-4">
               <div className="block">
                 <Label htmlFor="base" value="Position" />
               </div>
@@ -110,7 +110,7 @@ export function Work({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col md:w-64 gap-4">
               <div className="block">
                 <Label htmlFor="base" value="City" />
               </div>
@@ -127,7 +127,7 @@ export function Work({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col md:w-64 gap-4">
               <div className="block">
                 <Label htmlFor="base" value="Country" />
               </div>
@@ -144,7 +144,7 @@ export function Work({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col md:w-64 gap-4">
               <div className="block">
                 <Label htmlFor="base" value="Start Date" />
               </div>
@@ -164,7 +164,7 @@ export function Work({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col md:w-64 gap-4">
               <div className="grid grid-flow-col auto-cols-max gap-4 my-auto">
                 <Label htmlFor="base" value="End Date" />
                 <Tooltip content="If it's still in progress, leave this field blank (or set it same as start date)">

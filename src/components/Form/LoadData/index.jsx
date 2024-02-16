@@ -41,7 +41,7 @@ export function LoadData({ showAlert, hideAlert }) {
           </div>
         </div>
       </Banner>
-      <div className="grid grid-cols-2 gap-4 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         <div className="container mx-auto">
           <div className="grid grid-flow-row auto-rows-max gap-4 my-4">
             <div className="block">
