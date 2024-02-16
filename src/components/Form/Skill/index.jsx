@@ -15,7 +15,7 @@ import "react-widgets/styles.css";
 
 export function Skill({ showAlert, hideAlert }) {
   const { context, updateContext } = useContext(Context);
-  const skillData = context?.skill || [{ skill_information: [""] }];
+  const skillData = context?.skill || [{ skill_information: [] }];
 
   const [skillList, setSkillList] = useState(skillSet);
 
@@ -28,7 +28,7 @@ export function Skill({ showAlert, hideAlert }) {
   };
 
   const handleAddSkill = () => {
-    const updatedSkill = [...skillData, { skill_information: [""] }];
+    const updatedSkill = [...skillData, { skill_information: [] }];
     updateContext({ ...context, skill: updatedSkill });
   };
 
@@ -88,7 +88,7 @@ export function Skill({ showAlert, hideAlert }) {
           isError={handleErrorMessage}
         /> */}
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {skillData.map((skill, index) => (
           <div
             className="grid grid-flow-row auto-rows-max w-full mx-auto gap-4 my-4"

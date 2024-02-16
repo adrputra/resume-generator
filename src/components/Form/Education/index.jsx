@@ -58,13 +58,13 @@ export function Education({ showAlert, hideAlert }) {
           isError={handleErrorMessage}
         />
       </div>
-      <div className="grid grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {educationData.map((education, index) => (
           <div
             className="grid grid-flow-row auto-rows-max mx-auto gap-4 my-4"
             key={index}
           >
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col gap-4 md:w-64">
               <div className="block">
                 <Label htmlFor="base" value="Institution" />
               </div>
@@ -81,7 +81,7 @@ export function Education({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col gap-4 md:w-64">
               <div className="block">
                 <Label htmlFor="base" value="Major" />
               </div>
@@ -98,7 +98,7 @@ export function Education({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col gap-4 md:w-64">
               <div className="block">
                 <Label htmlFor="base" value="City" />
               </div>
@@ -115,7 +115,7 @@ export function Education({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col gap-4 md:w-64">
               <div className="block">
                 <Label htmlFor="base" value="Country" />
               </div>
@@ -132,7 +132,7 @@ export function Education({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col gap-4 md:w-64">
               <div className="block">
                 <Label htmlFor="base" value="Start Date" />
               </div>
@@ -152,7 +152,7 @@ export function Education({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col gap-4 md:w-64">
               <div className="grid grid-flow-col auto-cols-max gap-4 my-auto">
                 <Label htmlFor="base" value="End Date" />
                 <Tooltip content="If it's still in progress, leave this field blank (or set it same as start date)">
@@ -175,7 +175,7 @@ export function Education({ showAlert, hideAlert }) {
                 }
               />
             </div>
-            <div className="flex flex-auto flex-col w-64 gap-4">
+            <div className="flex flex-auto flex-col gap-4 md:w-64">
               <div className="block">
                 <Label htmlFor="base" value="GPA" />
               </div>
