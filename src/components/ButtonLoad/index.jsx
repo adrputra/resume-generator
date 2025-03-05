@@ -27,6 +27,10 @@ export function LoadButton(props) {
 
       const { user, edu, exp, skill, work, cert } = result.result;
 
+      if (user?.length === 0) {
+        throw new Error("Data Not Found");
+      }
+
       const newProfile = {
         id: user[0].id,
         name: user[0].name,
